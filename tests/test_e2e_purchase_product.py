@@ -43,9 +43,9 @@ def test_e2e_weather_shopper(base_url,browser,browser_version,os_version,os_name
         #Choose the right product type
         product_type = ""
         if temperature <= 18:
-            product_type = "moisturizer"
+            product_type = "moisturizers"
         if temperature >= 34:
-            product_type = "sunscreen"
+            product_type = "sunscreens"
         result_flag = test_obj.click_buy_button(product_type)
         test_obj.log_result(result_flag,
         positive="Landed on the %s page after clicking the buy button"%product_type,
