@@ -2,7 +2,7 @@
 This class models the landing page of Weather Shopper.
 URL: /
 """
-from .Base_Page import Base_Page
+from page_objects.Base_Page import Base_Page
 from utils.Wrapit import Wrapit
 import conf.locators_conf as locators 
 
@@ -26,7 +26,7 @@ class Main_Page(Base_Page):
         if temperature is not None:
             self.write("The temperature parsed is: %s"%temperature,level="debug")
             #Strip away the degree centigrade
-            temperature = temperature.split()[1] 
+            temperature = temperature.split()[0] 
             
             try:
                 temperature = int(temperature)
