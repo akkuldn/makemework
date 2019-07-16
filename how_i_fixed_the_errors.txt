@@ -20,3 +20,7 @@ I fixed it by returning ' Empty_cart_flag' in 'get_current_cart_quantity' functi
 Error 5-
 The error was that ,it was unbale to locate and click on the cart button.
 I fixed the error by changing the xpath of cart button in locators_conf.py file
+
+Error 6-
+The error was that, it was that there was no attribute verify cart in mainpage.
+I fixed it by changing the word 'main'  to'carts' was defined in the Page_object.py file
