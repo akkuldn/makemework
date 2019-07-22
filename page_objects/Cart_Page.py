@@ -6,8 +6,9 @@ URL: /cart
 from .Base_Page import Base_Page
 from utils.Wrapit import Wrapit
 import conf.locators_conf as locators 
+from page_objects.payment_object import Payment
 
-class Cart_Page(Base_Page):
+class Cart_Page(Base_Page, Payment):
     "This class models the cart page"
 
     CART_ROW = locators.CART_ROW

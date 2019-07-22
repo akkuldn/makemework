@@ -24,3 +24,21 @@ I fixed the error by changing the xpath of cart button in locators_conf.py file
 Error 6-
 The error was that, it was that there was no attribute verify cart in mainpage.
 I fixed it by changing the word 'main'  to'carts' was defined in the Page_object.py file
+
+Error 7-
+The hardest error till now. It was list index out of bounds error.
+Only one element was getting pushed to the list items in cart page.
+I figured it out by giving repeated print statements to follow the flow of the program and finally arrived at the location of the error
+I fixed it by moving the appending fuction inside for loop in the get_cart_items method
+
+Error 8-
+Error was that something went wrong with the cart and the actual total and the expected total didnt match.
+The first easy visible fix was to change the print statement after checking the result flag,as both positive and negtive conditions had the same print statement.
+The next step was fixing the total that was being calculated. The expected total was giving out the price of just the second item
+I fixed it by changing the 'expected_total=product.price' to 'expected_total=expected_total+product.price' in the verify_cart_total function of cart_page
+The final fix was changing the item_match_flag in verify_extra_item to true.
+
+Error 9-
+
+Error was that there is no attribute past_counter in cart_page. It was because the an attribute past_counter was referenced at the test_e2e_purchase page. 
+The error was fixed by changing 'past_counter' to 'pass_counter'

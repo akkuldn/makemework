@@ -81,7 +81,7 @@ class Product_Object():
 
     def get_minimum_priced_product(self,filter_condition):
         "Return the least expensive item based on a filter condition"
-        minimum_priced_product = None 
+        minimum_priced_product = None
         min_price = 10000000
         min_name = ''
         all_products = self.get_all_products_on_page()

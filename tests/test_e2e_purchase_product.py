@@ -14,6 +14,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from page_objects.PageFactory import PageFactory
 from utils.Option_Parser import Option_Parser
 import conf.e2e_weather_shopper_conf as conf
+from page_objects.payment_object import Payment
 
 def test_e2e_weather_shopper(base_url,browser,browser_version,os_version,os_name,remote_flag,testrail_flag,tesults_flag,test_run_id,remote_project_name,remote_build_name):
 
@@ -77,6 +78,26 @@ def test_e2e_weather_shopper(base_url,browser,browser_version,os_version,os_name
         negative="Something wrong with the cart. The log messages above will have the details",
         level="critical")
 
+        test_obj.wait(5)
+
+        #click on the pay button and switch the frame
+        result_flag =test_obj.go_to_payment()
+        test_obj.log_result(result_flag,
+        positive="clicked the payment button",
+        negative="Couldnt click on the payment button",
+        level="critical")
+
+        test_obj.wait(5)
+         
+        #enter payment details
+        test_obj.enter_payment_details()
+
+        test_obj.wait(5)
+
+        #verify if payment is successfull
+        test_obj.verify_success()
+        test_obj.wait(5)
+        
         #Print out the results
         test_obj.write_test_summary()
 
