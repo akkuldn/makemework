@@ -9,13 +9,13 @@ I fixed it by changing the name in conf to the one given in the test_e2e_putchas
 
 Error 3-
 The error was that,could not  obtain the cheapest product with filter condition .
-It had occured as the min value was intioalized to 10000 and the if condition was checking for products greater than 10000
+It had occured as the min value was initialized to 10000 and the if condition was checking for products greater than 10000
 I cleared it by changing the '>=' condition to '<=' in product_object.py page
 
 Error 4-
 It was type error. As the operators did not support none type.
 It had occured because the function did not return any value .
-I fixed it by returning ' Empty_cart_flag' in 'get_current_cart_quantity' function in Product_object.py page 
+I fixed it by returning ' Cart_quantity' in 'get_current_cart_quantity' function in Product_object.py page 
 
 Error 5-
 The error was that ,it was unbale to locate and click on the cart button.

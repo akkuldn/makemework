@@ -81,6 +81,7 @@ def test_e2e_weather_shopper(base_url,browser,browser_version,os_version,os_name
         test_obj.wait(5)
 
         #click on the pay button and switch the frame
+
         result_flag =test_obj.go_to_payment()
         test_obj.log_result(result_flag,
         positive="clicked the payment button",
@@ -88,14 +89,21 @@ def test_e2e_weather_shopper(base_url,browser,browser_version,os_version,os_name
         level="critical")
 
         test_obj.wait(5)
+        email=conf.EMAIL_ID
+        card_no=conf.CARD_NO
+        expiry=conf.EXPIRY
+        cvc=conf.CVC
+        zip_data=conf.ZIP
          
         #enter payment details
-        test_obj.enter_payment_details()
+        test_obj.enter_payment_details(email,card_no,expiry,cvc,zip_data)
 
         test_obj.wait(5)
+        payment_success_msg=conf.PAYMENT_SUCCESS_MESSAGE
+        
 
         #verify if payment is successfull
-        test_obj.verify_success()
+        test_obj.verify_success(payment_success_msg)
         test_obj.wait(5)
         
         #Print out the results

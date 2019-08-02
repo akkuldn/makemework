@@ -7,7 +7,7 @@ from utils.Wrapit import Wrapit
 import time
 class Payment():
     
-    PAYMENT_BUTTON=locators.PAYMENT_BUTTON
+    payment_button=locators.payment_button
     iframe=locators.iframe
     email_id=locators.email_id
     card=locators.card
@@ -17,37 +17,40 @@ class Payment():
     submit=locators.submit
     payment_success=locators.payment_success
     
-    #function to click on the payment button and switch frame
+    
     @Wrapit._screenshot
     def go_to_payment(self):
+        "function to click on the payment button and switch frame"
         
         result_flag=self.click_payment_button()
         result_flag &=self.switch_frame(self.iframe)
         return result_flag
     
-    #function to enter all the payment credentials 
     @Wrapit._screenshot
-    def enter_payment_details(self):
-        self.set_text(self.email_id,'akul@yahoo.com')
-        self.set_text(self.card,'4242424242424242')
-        self.set_text(self.expiry,'0224')
-        self.set_text(self.cvc,'935')
-        self.set_text(self.zip_code,'560039')
+    def enter_payment_details(self,email,card_no,expiry,cvc,zip_data):
+        "function to enter all the payment credentials" 
+
+        self.set_text(self.email_id,email)
+        self.set_text(self.card,card_no)
+        self.set_text(self.expiry,expiry)
+        self.set_text(self.cvc,cvc)
+        self.set_text(self.zip_code,zip_data)
         self.click_element(self.submit)
         
-    #function to check if the payment is successfull or not
     @Wrapit._screenshot
-    def verify_success(self):
+    def verify_success(self,payment_success_msg):
+        "function to check if the payment is successfull or not"
         result_flag=False
-        if(self.get_text(self.payment_success).decode('utf-8')=='PAYMENT SUCCESS'):
+        if(self.get_text(self.payment_success).decode('utf-8')==payment_success_msg):
             result_flag=True
         self.conditional_write(result_flag,
         positive="Payment done successfully",
         negative="Payment unsuccessfull")
         return result_flag
             
-    #fuction call to click on the pay button
     def click_payment_button(self):
-        result_flag=self.click_element(self.PAYMENT_BUTTON)
+        "fuction call to click on the pay button"
+
+        result_flag=self.click_element(self.payment_button)
         return result_flag
 
